@@ -1,6 +1,11 @@
 <?php  
 	require_once 'core/init.php';
 
+	if(!Session::exists("loginTrue") OR !Session::get("loginTrue") ){
+		Session::flash("no","Aca hackersito anda a tomar mate!!");
+		header("Location: login.php");
+	}
+
 	$users = DB::getInstance()->get("usuarios")->results();
 ?>
 <!doctype html>
